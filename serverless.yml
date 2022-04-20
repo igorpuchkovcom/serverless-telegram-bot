@@ -1,0 +1,27 @@
+org: igorpuchkov
+app: my-app
+service: my-service
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  memorySize: 128
+
+functions:
+  telegram:
+    handler: handler.telegram
+    events:
+      - schedule: rate(1 minute)
+    timeout: 59
+    environment:
+      TOKEN: ${param:token, ''}
+      NTBA_FIX_319: 'Any value'
+
+  apirest:
+    handler: handler.apirest
+    events:
+      - http:
+          path: /
+          method: get
