@@ -11,4 +11,5 @@ Requisitos previos:
 Despliegue:
 1. ```aws configure```
 2. ```npm ci```
-3. ```serverless deploy --param="token=***TELEGRAM_BOT_TOKEN***"```
+3. ```serverless login```
+4. ```serverless deploy --param="token=***TELEGRAM_BOT_TOKEN***"```
